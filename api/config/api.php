@@ -8,6 +8,7 @@ $config = [
     'basePath'    => dirname(__DIR__).'/..',
     'bootstrap'   => ['log'],
     'components'  => [
+
         // URL Configuration for our API
         'urlManager'  => [
 
@@ -15,21 +16,10 @@ $config = [
             // 'enableStrictParsing' => true,
             'showScriptName' => false,
 
-            'rules' => [
-                $rules,
-                '/' => 'site/index',
-                '<action:\w+>' => 'site/<action>',
-                '<controller:\w+>/<id:\d+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+(-\w+)*>' => '<controller>/<action>'
-            ],
+            'rules' => [],
         ],
 
-        'response' => [
-            'format' => yii\web\Response::FORMAT_JSON,
-            'charset' => 'UTF-8',
-        ],
+        'response' => [],
 
         'request' => [
             // Set Parser to JsonParser to accept Json in request
@@ -43,31 +33,7 @@ $config = [
             'class'  => 'yii\caching\FileCache',
         ],
 
-        // Set this enable authentication in our API
-        'user' => [
-            'class' => 'yii\web\User',
-            'identityClass'  => 'app\models\User',
-            'enableAutoLogin'  => false, // Don't forget to set Auto login to false
-        ],
-
-        'account' => [
-            'class' => 'yii\web\User',
-            'identityClass'  => 'app\models\Account',
-            'enableAutoLogin'  => false, // Don't forget to set Auto login to false
-        ],
-
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => false,
-            'transport' => [
-                'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username' => 'info@sportspass.com.au',
-                'password' => 'C@@te100!',
-                'port' => '587',
-                'encryption' => 'tls',
-            ],
-        ],
+        // 'mailer' => [ ],
 
         // Enable logging for API in a api Directory different than web directory
         'log' => [
